@@ -1,0 +1,42 @@
+experiment:
+  name: "single_butter_bowl"
+  description: "单遮挡物实验：butter box(底) + 1个black bowl(顶)"
+
+task:
+  suite: "custom"
+  task_name: "single_butter_bowl"
+
+groups:
+  # Guided: 分两步，先移除1个black bowl，再移butter box
+  - name: "guided"
+    description: "分两步：先移除1个black bowl，再移动butter box"
+    use_obstruction: false
+    stages:
+      - stage_name: "remove_top_bowl"
+        bddl_file: "experiments/obstruction/custom_bddl_files/single/butter_bowl_stacked.bddl"
+        instruction: "put the black bowl in the basket"
+        target_object: "akita_black_bowl_1"
+      
+      - stage_name: "move_bottom_butter"
+        bddl_file: "experiments/obstruction/custom_bddl_files/single/butter_only.bddl"
+        instruction: "put the butter box in the basket"
+        target_object: "butter_1"
+  
+  # Baseline: 直接移动底层butter box（1个black bowl遮挡）
+  - name: "baseline"
+    description: "直接移动底层的butter box到篮子（1个black bowl在上方遮挡）"
+    bddl_file: "experiments/obstruction/custom_bddl_files/single/butter_bowl_stacked_baseline.bddl"
+    instruction: "put the butter box in the basket"
+    use_obstruction: false
+    use_bddl_stacking: true
+
+execution:
+  episodes_per_group: 3
+  max_steps_per_episode: 300
+  seed_start: 43
+  checkpoint_dir: "./pi05_libero"
+
+output:
+  results_dir: "./experiments/obstruction/results/single/butter_bowl"
+  save_images: true
+  save_videos: false

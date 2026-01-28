@@ -1,0 +1,75 @@
+(define (problem LIBERO_Living_Room_Tabletop_Manipulation)
+  (:domain robosuite)
+  (:language put the plate in the basket)
+    (:regions
+      (basket_init_region
+          (:target living_room_table)
+          (:ranges (
+              (-0.01 0.25 0.01 0.27)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (chocolate_pudding_init_region
+          (:target living_room_table)
+          (:ranges (
+              (0.025 -0.125 0.075 -0.075)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (contain_region
+          (:target basket_1)
+      )
+      (moka_pot_obstacle_1_init_region
+          (:target living_room_table)
+          (:ranges (
+              (0.474717 0.013742 0.507633 0.068237)
+            )
+          )
+      )
+      (akita_black_bowl_obstacle_1_init_region
+          (:target living_room_table)
+          (:ranges (
+              (-0.107736 0.229655 -0.052243 0.281545)
+            )
+          )
+      )
+    )
+
+  (:fixtures
+    living_room_table - living_room_table
+  )
+
+  (:objects
+    chocolate_pudding_1 - chocolate_pudding
+    plate_1 - plate
+    basket_1 - basket
+  moka_pot_obstacle_1 - moka_pot
+  akita_black_bowl_obstacle_1 - akita_black_bowl
+  )
+
+  (:obj_of_interest
+    plate_1
+    basket_1
+  )
+
+  (:init
+    (On chocolate_pudding_1 living_room_table_chocolate_pudding_init_region)
+    (On plate_1 chocolate_pudding_1)
+    (On basket_1 living_room_table_basket_init_region)
+  (On moka_pot_obstacle_1 living_room_table_moka_pot_obstacle_1_init_region)
+  (On akita_black_bowl_obstacle_1 living_room_table_akita_black_bowl_obstacle_1_init_region)
+  )
+
+  (:goal
+    (And (In plate_1 basket_1_contain_region))
+  )
+
+)

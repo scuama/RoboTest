@@ -1,0 +1,42 @@
+experiment:
+  name: "single_cheese_orange_juice"
+  description: "单遮挡物实验：cream cheese(底) + 1个orange juice(顶)"
+
+task:
+  suite: "custom"
+  task_name: "single_cheese_orange_juice"
+
+groups:
+  # Guided: 分两步，先移除1个orange juice，再移cream cheese
+  - name: "guided"
+    description: "分两步：先移除1个orange juice，再移动cream cheese"
+    use_obstruction: false
+    stages:
+      - stage_name: "remove_top_orange_juice"
+        bddl_file: "experiments/obstruction/custom_bddl_files/single/cheese_orange_juice_stacked.bddl"
+        instruction: "put the orange juice in the basket"
+        target_object: "orange_juice_1"
+      
+      - stage_name: "move_bottom_cheese"
+        bddl_file: "experiments/obstruction/custom_bddl_files/single/cheese_only.bddl"
+        instruction: "put the cream cheese in the basket"
+        target_object: "cream_cheese_1"
+  
+  # Baseline: 直接移动底层cream cheese（1个orange juice遮挡）
+  - name: "baseline"
+    description: "直接移动底层的cream cheese到篮子（1个orange juice在上方遮挡）"
+    bddl_file: "experiments/obstruction/custom_bddl_files/single/cheese_orange_juice_stacked_baseline.bddl"
+    instruction: "put the cream cheese in the basket"
+    use_obstruction: false
+    use_bddl_stacking: true
+
+execution:
+  episodes_per_group: 3
+  max_steps_per_episode: 300
+  seed_start: 43
+  checkpoint_dir: "./pi05_libero"
+
+output:
+  results_dir: "./experiments/obstruction/results/single/cheese_orange_juice"
+  save_images: true
+  save_videos: false

@@ -1,0 +1,37 @@
+experiment:
+  name: pair_butter_pudding
+  description: "\u4E24\u4E24\u5806\u53E0\u5B9E\u9A8C\uFF1Abutter(\u5E95) + 2\u4E2A\
+    chocolate pudding(\u9876)"
+task:
+  suite: custom
+  task_name: pair_butter_pudding
+groups:
+- name: guided
+  description: "\u5206\u4E24\u6B65\uFF1A\u5148\u79FB\u96642\u4E2Achocolate pudding\uFF0C\
+    \u518D\u79FB\u52A8butter"
+  use_obstruction: false
+  stages:
+  - stage_name: remove_top_puddings
+    bddl_file: experiments/obstruction/optimization_results/optimization_20260122_044234/scene_0053/mutated_stacked.bddl
+    instruction: put the chocolate pudding in the basket
+    target_object: chocolate_pudding_1
+  - stage_name: move_bottom_butter
+    bddl_file: experiments/obstruction/optimization_results/optimization_20260122_044234/scene_0053/mutated_only.bddl
+    instruction: put the butter in the basket
+    target_object: butter_1
+- name: baseline
+  description: "\u76F4\u63A5\u79FB\u52A8\u5E95\u5C42\u7684butter\u5230\u7BEE\u5B50\
+    \uFF082\u4E2Achocolate pudding\u5728\u4E0A\u65B9\u906E\u6321\uFF09"
+  bddl_file: experiments/obstruction/custom_bddl_files/pair/butter_pudding_stacked_baseline.bddl
+  instruction: put the butter in the basket
+  use_obstruction: false
+  use_bddl_stacking: true
+execution:
+  episodes_per_group: 1
+  max_steps_per_episode: 300
+  seed_start: 0
+  checkpoint_dir: ./pi05_libero
+output:
+  results_dir: experiments/obstruction/optimization_results/optimization_20260122_044234/scene_0053/guided_attempt_0
+  save_images: true
+  save_videos: false

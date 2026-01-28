@@ -1,0 +1,42 @@
+experiment:
+  name: "pair_pudding_butter"
+  description: "两两堆叠实验：chocolate pudding(底) + 2个butter(顶)"
+
+task:
+  suite: "custom"
+  task_name: "pair_pudding_butter"
+
+groups:
+  # Guided: 分两步，先移除2个butter，再移chocolate pudding
+  - name: "guided"
+    description: "分两步：先移除2个butter，再移动chocolate pudding"
+    use_obstruction: false
+    stages:
+      - stage_name: "remove_top_butters"
+        bddl_file: "experiments/obstruction/custom_bddl_files/pair/pudding_butter_stacked.bddl"
+        instruction: "put the butter in the basket"
+        target_object: "butter_1"
+      
+      - stage_name: "move_bottom_pudding"
+        bddl_file: "experiments/obstruction/custom_bddl_files/pair/pudding_only.bddl"
+        instruction: "put the chocolate pudding in the basket"
+        target_object: "chocolate_pudding_1"
+  
+  # Baseline: 直接移动底层chocolate pudding（2个butter遮挡）
+  - name: "baseline"
+    description: "直接移动底层的chocolate pudding到篮子（2个butter在上方遮挡）"
+    bddl_file: "experiments/obstruction/custom_bddl_files/pair/pudding_butter_stacked_baseline.bddl"
+    instruction: "put the chocolate pudding in the basket"
+    use_obstruction: false
+    use_bddl_stacking: true
+
+execution:
+  episodes_per_group: 3
+  max_steps_per_episode: 300
+  seed_start: 43
+  checkpoint_dir: "./pi05_libero"
+
+output:
+  results_dir: "./experiments/obstruction/results/pair/pudding_butter"
+  save_images: true
+  save_videos: false

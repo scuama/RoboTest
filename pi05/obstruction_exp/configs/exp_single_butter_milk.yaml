@@ -1,0 +1,42 @@
+experiment:
+  name: "single_butter_milk"
+  description: "单遮挡物实验：butter box(底) + 1个milk(顶)"
+
+task:
+  suite: "custom"
+  task_name: "single_butter_milk"
+
+groups:
+  # Guided: 分两步，先移除1个milk，再移butter box
+  - name: "guided"
+    description: "分两步：先移除1个milk，再移动butter box"
+    use_obstruction: false
+    stages:
+      - stage_name: "remove_top_milk"
+        bddl_file: "experiments/obstruction/custom_bddl_files/single/butter_milk_stacked.bddl"
+        instruction: "put the milk in the basket"
+        target_object: "milk_1"
+      
+      - stage_name: "move_bottom_butter"
+        bddl_file: "experiments/obstruction/custom_bddl_files/single/butter_only.bddl"
+        instruction: "put the butter box in the basket"
+        target_object: "butter_1"
+  
+  # Baseline: 直接移动底层butter box（1个milk遮挡）
+  - name: "baseline"
+    description: "直接移动底层的butter box到篮子（1个milk在上方遮挡）"
+    bddl_file: "experiments/obstruction/custom_bddl_files/single/butter_milk_stacked_baseline.bddl"
+    instruction: "put the butter box in the basket"
+    use_obstruction: false
+    use_bddl_stacking: true
+
+execution:
+  episodes_per_group: 3
+  max_steps_per_episode: 300
+  seed_start: 43
+  checkpoint_dir: "./pi05_libero"
+
+output:
+  results_dir: "./experiments/obstruction/results/single/butter_milk"
+  save_images: true
+  save_videos: false

@@ -1,0 +1,66 @@
+(define (problem LIBERO_Living_Room_Tabletop_Manipulation)
+  (:domain robosuite)
+  (:language put the milk in the basket)
+    (:regions
+      (basket_init_region
+          (:target living_room_table)
+          (:ranges (
+              (-0.01 0.25 0.01 0.27)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (chocolate_pudding_init_region
+          (:target living_room_table)
+          (:ranges (
+              (0.025 -0.125 0.075 -0.075)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (contain_region
+          (:target basket_1)
+      )
+      (ketchup_obstacle_1_init_region
+          (:target living_room_table)
+          (:ranges (
+              (-0.069729 -0.405955 -0.014929 -0.368954)
+            )
+          )
+      )
+    )
+
+  (:fixtures
+    living_room_table - living_room_table
+  )
+
+  (:objects
+    chocolate_pudding_1 - chocolate_pudding
+    milk_1 - milk
+    basket_1 - basket
+  ketchup_obstacle_1 - ketchup
+  )
+
+  (:obj_of_interest
+    milk_1
+    basket_1
+  )
+
+  (:init
+    (On chocolate_pudding_1 living_room_table_chocolate_pudding_init_region)
+    (On milk_1 chocolate_pudding_1)
+    (On basket_1 living_room_table_basket_init_region)
+  (On ketchup_obstacle_1 living_room_table_ketchup_obstacle_1_init_region)
+  )
+
+  (:goal
+    (And (In milk_1 basket_1_contain_region))
+  )
+
+)

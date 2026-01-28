@@ -1,0 +1,91 @@
+(define (problem LIBERO_Living_Room_Tabletop_Manipulation)
+  (:domain robosuite)
+  (:language put the chocolate pudding in the basket)
+    (:regions
+      (basket_init_region
+          (:target living_room_table)
+          (:ranges (
+              (-0.01 0.25 0.01 0.27)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (chocolate_pudding_init_region
+          (:target living_room_table)
+          (:ranges (
+              (0.025 -0.125 0.075 -0.075)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (contain_region
+          (:target basket_1)
+      )
+      (plate_obstacle_1_init_region
+          (:target living_room_table)
+          (:ranges (
+              (0.175000 -0.115000 0.205000 -0.085000)
+            )
+          )
+      )
+      (wine_bottle_obstacle_1_init_region
+          (:target living_room_table)
+          (:ranges (
+              (-0.105000 -0.115000 -0.075000 -0.085000)
+            )
+          )
+      )
+      (akita_black_bowl_obstacle_1_init_region
+          (:target living_room_table)
+          (:ranges (
+              (0.035000 0.025000 0.065000 0.055000)
+            )
+          )
+      )
+      (red_coffee_mug_obstacle_1_init_region
+          (:target living_room_table)
+          (:ranges (
+              (0.035000 -0.255000 0.065000 -0.225000)
+            )
+          )
+      )
+    )
+
+  (:fixtures
+    living_room_table - living_room_table
+  )
+
+  (:objects
+    chocolate_pudding_1 - chocolate_pudding
+    basket_1 - basket
+  plate_obstacle_1 - plate
+  wine_bottle_obstacle_1 - wine_bottle
+  akita_black_bowl_obstacle_1 - akita_black_bowl
+  red_coffee_mug_obstacle_1 - red_coffee_mug
+  )
+
+  (:obj_of_interest
+    chocolate_pudding_1
+    basket_1
+  )
+
+  (:init
+    (On chocolate_pudding_1 living_room_table_chocolate_pudding_init_region)
+    (On basket_1 living_room_table_basket_init_region)
+  (On plate_obstacle_1 living_room_table_plate_obstacle_1_init_region)
+  (On wine_bottle_obstacle_1 living_room_table_wine_bottle_obstacle_1_init_region)
+  (On akita_black_bowl_obstacle_1 living_room_table_akita_black_bowl_obstacle_1_init_region)
+  (On red_coffee_mug_obstacle_1 living_room_table_red_coffee_mug_obstacle_1_init_region)
+  )
+
+  (:goal
+    (And (In chocolate_pudding_1 basket_1_contain_region))
+  )
+
+)

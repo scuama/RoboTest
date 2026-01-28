@@ -1,0 +1,37 @@
+experiment:
+  name: single_pudding_alphabet_soup
+  description: "\u5355\u906E\u6321\u7269\u5B9E\u9A8C\uFF1Achocolate pudding(\u5E95\
+    ) + 1\u4E2Aalphabet soup(\u9876)"
+task:
+  suite: custom
+  task_name: single_pudding_alphabet_soup
+groups:
+- name: guided
+  description: "\u5206\u4E24\u6B65\uFF1A\u5148\u79FB\u96641\u4E2Aalphabet soup\uFF0C\
+    \u518D\u79FB\u52A8chocolate pudding"
+  use_obstruction: false
+  stages:
+  - stage_name: remove_top_alphabet_soup
+    bddl_file: experiments/obstruction/optimization_results/optimization_20260122_044234/scene_0019/mutated_stacked.bddl
+    instruction: put the alphabet soup in the basket
+    target_object: alphabet_soup_1
+  - stage_name: move_bottom_pudding
+    bddl_file: experiments/obstruction/optimization_results/optimization_20260122_044234/scene_0019/mutated_only.bddl
+    instruction: put the chocolate pudding in the basket
+    target_object: chocolate_pudding_1
+- name: baseline
+  description: "\u76F4\u63A5\u79FB\u52A8\u5E95\u5C42\u7684chocolate pudding\u5230\u7BEE\
+    \u5B50\uFF081\u4E2Aalphabet soup\u5728\u4E0A\u65B9\u906E\u6321\uFF09"
+  bddl_file: experiments/obstruction/custom_bddl_files/single/pudding_alphabet_soup_stacked_baseline.bddl
+  instruction: put the chocolate pudding in the basket
+  use_obstruction: false
+  use_bddl_stacking: true
+execution:
+  episodes_per_group: 1
+  max_steps_per_episode: 300
+  seed_start: 0
+  checkpoint_dir: ./pi05_libero
+output:
+  results_dir: experiments/obstruction/optimization_results/optimization_20260122_044234/scene_0019/guided_attempt_0
+  save_images: true
+  save_videos: false

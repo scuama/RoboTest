@@ -1,0 +1,51 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+*.egg-info/
+.Python
+
+# Experiment results
+results/
+new_results/
+logs/
+*.log
+output/
+images/
+videos/
+backup/
+fuzzer_output/
+optimization_results/
+
+# Model checkpoints
+*.ckpt
+*.pth
+*.pt
+*.bin
+*.safetensors
+checkpoints/
+*.ocdbt
+
+# Temporary files
+*.tmp
+*.pkl
+*.pickle
+temp/
+tmp/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# Environment
+.env
+.env.local
+venv/
+env/
+
+# Cache
+.cache/
+*.pyc

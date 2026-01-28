@@ -1,0 +1,403 @@
+{
+  "annotation_metadata": {
+    "total_scenes": 80,
+    "annotated_scenes": 46,
+    "success_scenes": 46,
+    "annotation_date": "2026-01-23",
+    "deficiency_types": {
+      "1": "IR - Incomplete Reasoning",
+      "2": "IA - Incorrect Alignment",
+      "3": "OPD - Out-of-Distribution Performance Degradation",
+      "4": "IPU - Inaccurate Perception/Understanding"
+    },
+    "task_types": {
+      "pick_up": "Pick up - 15 scenes",
+      "move_to": "Move to - 13 scenes",
+      "put_on": "Put on - 10 scenes",
+      "put_in": "Put in - 8 scenes"
+    }
+  },
+  "annotations": {
+    "1": {
+      "scene_id": 1,
+      "deficiency_type": 1,
+      "deficiency_name": "IR",
+      "task_type": "pick_up",
+      "optimization_success": true
+    },
+    "4": {
+      "scene_id": 4,
+      "deficiency_type": 4,
+      "deficiency_name": "IPU",
+      "task_type": "pick_up",
+      "optimization_success": true
+    },
+    "6": {
+      "scene_id": 6,
+      "deficiency_type": 1,
+      "deficiency_name": "IR",
+      "task_type": "pick_up",
+      "optimization_success": true
+    },
+    "7": {
+      "scene_id": 7,
+      "deficiency_type": 1,
+      "deficiency_name": "IR",
+      "task_type": "pick_up",
+      "optimization_success": true
+    },
+    "9": {
+      "scene_id": 9,
+      "deficiency_type": 1,
+      "deficiency_name": "IR",
+      "task_type": "pick_up",
+      "optimization_success": true
+    },
+    "11": {
+      "scene_id": 11,
+      "deficiency_type": 1,
+      "deficiency_name": "IR",
+      "task_type": "pick_up",
+      "optimization_success": true
+    },
+    "12": {
+      "scene_id": 12,
+      "deficiency_type": 3,
+      "deficiency_name": "OPD",
+      "task_type": "pick_up",
+      "optimization_success": true
+    },
+    "13": {
+      "scene_id": 13,
+      "deficiency_type": 2,
+      "deficiency_name": "IA",
+      "task_type": "pick_up",
+      "optimization_success": true
+    },
+    "15": {
+      "scene_id": 15,
+      "deficiency_type": 1,
+      "deficiency_name": "IR",
+      "task_type": "pick_up",
+      "optimization_success": true
+    },
+    "17": {
+      "scene_id": 17,
+      "deficiency_type": 1,
+      "deficiency_name": "IR",
+      "task_type": "pick_up",
+      "optimization_success": true
+    },
+    "19": {
+      "scene_id": 19,
+      "deficiency_type": 1,
+      "deficiency_name": "IR",
+      "task_type": "pick_up",
+      "optimization_success": true
+    },
+    "23": {
+      "scene_id": 23,
+      "deficiency_type": 2,
+      "deficiency_name": "IA",
+      "task_type": "pick_up",
+      "optimization_success": true
+    },
+    "26": {
+      "scene_id": 26,
+      "deficiency_type": 2,
+      "deficiency_name": "IA",
+      "task_type": "pick_up",
+      "optimization_success": true
+    },
+    "28": {
+      "scene_id": 28,
+      "deficiency_type": 1,
+      "deficiency_name": "IR",
+      "task_type": "pick_up",
+      "optimization_success": true
+    },
+    "31": {
+      "scene_id": 31,
+      "deficiency_type": 4,
+      "deficiency_name": "IPU",
+      "task_type": "pick_up",
+      "optimization_success": true
+    },
+    "32": {
+      "scene_id": 32,
+      "deficiency_type": 1,
+      "deficiency_name": "IR",
+      "task_type": "move_to",
+      "optimization_success": true
+    },
+    "34": {
+      "scene_id": 34,
+      "deficiency_type": 1,
+      "deficiency_name": "IR",
+      "task_type": "move_to",
+      "optimization_success": true
+    },
+    "35": {
+      "scene_id": 35,
+      "deficiency_type": 4,
+      "deficiency_name": "IPU",
+      "task_type": "move_to",
+      "optimization_success": true
+    },
+    "38": {
+      "scene_id": 38,
+      "deficiency_type": 4,
+      "deficiency_name": "IPU",
+      "task_type": "move_to",
+      "optimization_success": true
+    },
+    "41": {
+      "scene_id": 41,
+      "deficiency_type": 2,
+      "deficiency_name": "IA",
+      "task_type": "move_to",
+      "optimization_success": true
+    },
+    "44": {
+      "scene_id": 44,
+      "deficiency_type": 1,
+      "deficiency_name": "IR",
+      "task_type": "move_to",
+      "optimization_success": true
+    },
+    "46": {
+      "scene_id": 46,
+      "deficiency_type": 2,
+      "deficiency_name": "IA",
+      "task_type": "move_to",
+      "optimization_success": true
+    },
+    "49": {
+      "scene_id": 49,
+      "deficiency_type": 4,
+      "deficiency_name": "IPU",
+      "task_type": "move_to",
+      "optimization_success": true
+    },
+    "50": {
+      "scene_id": 50,
+      "deficiency_type": 1,
+      "deficiency_name": "IR",
+      "task_type": "move_to",
+      "optimization_success": true
+    },
+    "53": {
+      "scene_id": 53,
+      "deficiency_type": 1,
+      "deficiency_name": "IR",
+      "task_type": "move_to",
+      "optimization_success": true
+    },
+    "57": {
+      "scene_id": 57,
+      "deficiency_type": 4,
+      "deficiency_name": "IPU",
+      "task_type": "move_to",
+      "optimization_success": true
+    },
+    "59": {
+      "scene_id": 59,
+      "deficiency_type": 1,
+      "deficiency_name": "IR",
+      "task_type": "move_to",
+      "optimization_success": true
+    },
+    "60": {
+      "scene_id": 60,
+      "deficiency_type": 1,
+      "deficiency_name": "IR",
+      "task_type": "move_to",
+      "optimization_success": true
+    },
+    "65": {
+      "scene_id": 65,
+      "deficiency_type": 1,
+      "deficiency_name": "IR",
+      "task_type": "put_on",
+      "optimization_success": true
+    },
+    "66": {
+      "scene_id": 66,
+      "deficiency_type": 1,
+      "deficiency_name": "IR",
+      "task_type": "put_on",
+      "optimization_success": true
+    },
+    "68": {
+      "scene_id": 68,
+      "deficiency_type": 4,
+      "deficiency_name": "IPU",
+      "task_type": "put_on",
+      "optimization_success": true
+    },
+    "70": {
+      "scene_id": 70,
+      "deficiency_type": 2,
+      "deficiency_name": "IA",
+      "task_type": "put_on",
+      "optimization_success": true
+    },
+    "71": {
+      "scene_id": 71,
+      "deficiency_type": 4,
+      "deficiency_name": "IPU",
+      "task_type": "put_on",
+      "optimization_success": true
+    },
+    "73": {
+      "scene_id": 73,
+      "deficiency_type": 1,
+      "deficiency_name": "IR",
+      "task_type": "put_on",
+      "optimization_success": true
+    },
+    "76": {
+      "scene_id": 76,
+      "deficiency_type": 3,
+      "deficiency_name": "OPD",
+      "task_type": "put_on",
+      "optimization_success": true
+    },
+    "79": {
+      "scene_id": 79,
+      "deficiency_type": 1,
+      "deficiency_name": "IR",
+      "task_type": "put_on",
+      "optimization_success": true
+    },
+    "82": {
+      "scene_id": 82,
+      "deficiency_type": 4,
+      "deficiency_name": "IPU",
+      "task_type": "put_on",
+      "optimization_success": true
+    },
+    "86": {
+      "scene_id": 86,
+      "deficiency_type": 2,
+      "deficiency_name": "IA",
+      "task_type": "put_on",
+      "optimization_success": true
+    },
+    "88": {
+      "scene_id": 88,
+      "deficiency_type": 3,
+      "deficiency_name": "OPD",
+      "task_type": "put_in",
+      "optimization_success": true
+    },
+    "89": {
+      "scene_id": 89,
+      "deficiency_type": 2,
+      "deficiency_name": "IA",
+      "task_type": "put_in",
+      "optimization_success": true
+    },
+    "91": {
+      "scene_id": 91,
+      "deficiency_type": 2,
+      "deficiency_name": "IA",
+      "task_type": "put_in",
+      "optimization_success": true
+    },
+    "92": {
+      "scene_id": 92,
+      "deficiency_type": 2,
+      "deficiency_name": "IA",
+      "task_type": "put_in",
+      "optimization_success": true
+    },
+    "93": {
+      "scene_id": 93,
+      "deficiency_type": 1,
+      "deficiency_name": "IR",
+      "task_type": "put_in",
+      "optimization_success": true
+    },
+    "94": {
+      "scene_id": 94,
+      "deficiency_type": 4,
+      "deficiency_name": "IPU",
+      "task_type": "put_in",
+      "optimization_success": true
+    },
+    "97": {
+      "scene_id": 97,
+      "deficiency_type": 1,
+      "deficiency_name": "IR",
+      "task_type": "put_in",
+      "optimization_success": true
+    },
+    "98": {
+      "scene_id": 98,
+      "deficiency_type": 1,
+      "deficiency_name": "IR",
+      "task_type": "put_in",
+      "optimization_success": true
+    }
+  },
+  "statistics": {
+    "by_deficiency_type": {
+      "IR": {
+        "count": 24,
+        "success_count": 24,
+        "scenes": [1, 6, 7, 9, 11, 15, 17, 19, 28, 32, 34, 44, 50, 53, 59, 60, 65, 66, 73, 79, 93, 97, 98]
+      },
+      "IA": {
+        "count": 10,
+        "success_count": 10,
+        "scenes": [13, 23, 26, 41, 46, 70, 86, 89, 91, 92]
+      },
+      "OPD": {
+        "count": 3,
+        "success_count": 3,
+        "scenes": [12, 76, 88]
+      },
+      "IPU": {
+        "count": 9,
+        "success_count": 9,
+        "scenes": [4, 31, 35, 38, 49, 57, 68, 71, 82, 94]
+      }
+    },
+    "by_task_type": {
+      "pick_up": {
+        "count": 15,
+        "success_count": 15,
+        "scenes": [1, 4, 6, 7, 9, 11, 12, 13, 15, 17, 19, 23, 26, 28, 31]
+      },
+      "move_to": {
+        "count": 13,
+        "success_count": 13,
+        "scenes": [32, 34, 35, 38, 41, 44, 46, 49, 50, 53, 57, 59, 60]
+      },
+      "put_on": {
+        "count": 10,
+        "success_count": 10,
+        "scenes": [65, 66, 68, 70, 71, 73, 76, 79, 82, 86]
+      },
+      "put_in": {
+        "count": 8,
+        "success_count": 8,
+        "scenes": [88, 89, 91, 92, 93, 94, 97, 98]
+      }
+    },
+    "summary": {
+      "total_annotated": 46,
+      "total_success": 46,
+      "success_rate": 100.0,
+      "ir_success": 24,
+      "ia_success": 10,
+      "opd_success": 3,
+      "ipu_success": 9,
+      "pick_up_success": 15,
+      "move_to_success": 13,
+      "put_on_success": 10,
+      "put_in_success": 8
+    }
+  }
+}

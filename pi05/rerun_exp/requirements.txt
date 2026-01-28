@@ -1,0 +1,26 @@
+# Python依赖列表
+# 用于重新运行优化实验
+
+# 核心依赖（需要已安装在env_isaaclab环境中）
+torch>=2.0.0
+numpy>=1.20.0
+pyyaml>=6.0
+opencv-python>=4.5.0
+
+# LIBERO环境
+# libero  # 需要从源码安装
+
+# OpenPI模型
+# openpi  # 需要从源码安装
+
+# 机器人仿真
+# robosuite
+# mujoco-py 或 mujoco
+
+# 说明：
+# 1. 本项目依赖已存在的env_isaaclab conda环境
+# 2. 确保以下路径正确：
+#    - /home/decom/LIBERO (LIBERO库)
+#    - /home/decom/Downloads/IsaacLab/openpi-main/src (OpenPI源码)
+#    - ./pi05_libero (Pi0.5模型checkpoint)
+# 3. 运行前需激活环境：conda activate env_isaaclab
