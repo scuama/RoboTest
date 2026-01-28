@@ -141,25 +141,3 @@ bash start_optimization.sh --task grasp --model openvla-7b
 cd RQ3_Real_World_Validation/replay_framework
 bash rerun_experiments.sh
 ```
-
-## Results
-
-Results are saved in respective `results/` directories:
-- `RQ1_Deficiency_Detection/results/`: Detection logs and coverage statistics
-- `RQ2_Deficiency_Repair/results/`: Repair success rates and memory datasets  
-- `RQ3_Real_World_Validation/results/`: Real robot execution logs
-
-For detailed results and analysis, please refer to the paper.
-
-## Citation
-
-If you use RoboTest in your research, please cite our paper:
-
-```bibtex
-@inproceedings{robotest2026,
-  title={RoboTest: Systematic Testing and Automated Repair of Vision-Language-Action Models},
-  author={[Authors]},
-  booktitle={Proceedings of ISSTA 2026},
-  year={2026}
-}
-```
