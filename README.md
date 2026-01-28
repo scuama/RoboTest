@@ -1,6 +1,6 @@
 # RoboTest
 
-This repository provides the artifacts for the ISSTA 2026 paper:
+This repository provides the artifacts for the ISSTA 2026 paper (Submission #10):
 
 **RoboTest: A Generic Testing Analysis Approach for Detecting and Repairing Deficiencies in Vision-Language-Action Model**
 
