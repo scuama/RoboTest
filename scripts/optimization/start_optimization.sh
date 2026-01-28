@@ -50,12 +50,12 @@ else
 fi
 
 # Run optimizer
-cd "$PROJECT_ROOT"
+cd "$SCRIPT_DIR"
 
 if [ "$FOREGROUND" = true ]; then
     # Foreground mode
     echo "[INFO] Running in foreground mode"
-    python3 -u optimization/optimizer.py "$@"
+    python3 -u run_optimization.py "$@"
 else
     # Default: background mode with nohup
     echo "============================================"
@@ -69,7 +69,7 @@ else
     echo ""
     
     # Use -u flag for unbuffered output (real-time logging)
-    nohup python3 -u optimization/optimizer.py "$@" > "$LOG_FILE" 2>&1 &
+    nohup python3 -u run_optimization.py "$@" > "$LOG_FILE" 2>&1 &
     PID=$!
     
     echo "✅ Started successfully (PID: $PID)"

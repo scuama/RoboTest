@@ -6,7 +6,7 @@ This repository provides the artifacts for the ISSTA 2026 paper:
 
 ## Overview
 
-We propose **RoboTest**, a generic testing analysis framework to detect and repair deficiencies in VLA models. To the best of our knowledge, RoboTest is the first of its kind for VLA model testing and repair, enabling automatic evaluation and augmentation before deployment to improve robustness and reduce potential risks.
+**RoboTest** is a generic testing framework for detecting and repairing deficiencies in Vision-Language-Action (VLA) models through automated evaluation and augmentation.
 
 ## Installation
 

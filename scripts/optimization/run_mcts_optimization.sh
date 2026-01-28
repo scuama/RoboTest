@@ -81,7 +81,7 @@ echo ""
 
 cd WORKSPACE_PLACEHOLDER
 
-stdbuf -oL -eL python3 run_mcts_fuzzer.py \
+stdbuf -oL -eL python3 ../fuzzing/run_mcts_fuzzer.py \
     --task-suite libero_90 \
     --task-type put-in \
     --checkpoint-dir ${CHECKPOINT_DIR:-./checkpoints} \
