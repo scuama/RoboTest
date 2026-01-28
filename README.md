@@ -17,7 +17,33 @@ This repository provides the artifacts for the ISSTA 2026 paper (Submission #10)
 - CUDA 11.8+ or 12.0+
 - NVIDIA GPU (8GB+ memory)
 
-### For OpenVLA/RT-1 Experiments
+## Quick Start
+
+### Deficiency Detection
+
+```bash
+# OpenVLA/RT-1 fuzzing
+cd scripts/fuzzing
+python run_mcts_vla_fuzzer.py --data ../../data/t-grasp_n-100_o-0_s-170912623.json --model openvla-7b
+
+# π0.5 fuzzing
+python run_mcts_fuzzer.py --config ../../configs/fuzzing/exp_single_butter_bowl.yaml
+```
+
+### Deficiency Repair
+
+```bash
+# OpenVLA/RT-1 optimization
+cd scripts/optimization
+bash start_optimization.sh --task grasp --model openvla-7b
+
+# π0.5 optimization
+bash run_optimization.sh
+```
+
+## VLA接入
+
+### OpenVLA/RT-1 Experiments
 
 Built on [SimplerEnv](https://github.com/simpler-env/SimplerEnv) and [ManiSkill2_real2sim](https://github.com/simpler-env/ManiSkill2_real2sim).
 
@@ -30,7 +56,7 @@ pip install -r requirements_openvla_rt1.txt
 # OpenVLA-7b: https://github.com/openvla/openvla
 ```
 
-### For π0.5 Experiments
+### π0.5 Experiments
 
 Built on [OpenPI](https://github.com/Physical-Intelligence/openpi) and [LIBERO](https://github.com/Lifelong-Robot-Learning/LIBERO).
 
@@ -52,36 +78,4 @@ pip install -r requirements_pi05.txt
 # Set environment variables
 export MUJOCO_GL=egl
 export PYOPENGL_PLATFORM=egl
-```
-
-## Quick Start
-
-### Deficiency Detection (RQ1)
-
-```bash
-# OpenVLA/RT-1 fuzzing
-cd scripts/fuzzing
-python run_mcts_vla_fuzzer.py --data ../../data/t-grasp_n-100_o-0_s-170912623.json --model openvla-7b
-
-# π0.5 fuzzing
-python run_mcts_fuzzer.py --config ../../configs/fuzzing/exp_single_butter_bowl.yaml
-```
-
-### Deficiency Repair (RQ2)
-
-```bash
-# OpenVLA/RT-1 optimization
-cd scripts/optimization
-bash start_optimization.sh --task grasp --model openvla-7b
-
-# π0.5 optimization
-bash run_optimization.sh
-```
-
-### Real-World Validation (RQ3)
-
-```bash
-# Run validation on physical robot scenes
-cd scripts/validation
-bash rerun_experiments.sh
 ```
