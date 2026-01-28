@@ -18,7 +18,7 @@ _ROOT_DIR = Path(__file__).resolve().parent
 _REPO_ROOT = _ROOT_DIR.parent
 sys.path.insert(0, str(_REPO_ROOT))
 
-from optimization_exp.scripts import run_experiment
+from scripts.validation import run_experiment
 
 
 def parse_scene_list(scenes_str: str) -> List[int]:

@@ -1,0 +1,50 @@
+# Requirements for OpenVLA/RT-1 Experiments (SimplerEnv + ManiSkill2)
+
+# Core simulation frameworks
+simpler-env>=0.1.0
+gym>=0.26.0
+gymnasium==0.29.1
+sapien==2.2.2
+
+# Deep learning frameworks
+torch==2.4.0
+torchvision==0.19.0
+torchaudio==2.4.0
+tensorflow[and-cuda]==2.15.1
+
+# TensorFlow ecosystem for RT-1
+tensorflow_datasets==4.9.4
+tensorflow_hub==0.16.0
+rlds==0.1.8
+tf_agents==0.19.0
+dm-reverb[tensorflow]==0.14.0
+
+# Transformers for OpenVLA
+transformers==4.42.1
+einops==0.8.0
+
+# Vision and utilities
+opencv-python>=4.10.0
+transforms3d
+imageio
+imageio[ffmpeg]
+trimesh
+rtree
+Pillow>=11.0.0
+
+# Basic scientific computing
+numpy<2.0.0
+scipy==1.12.0
+h5py
+pyyaml
+tqdm
+
+# Additional utilities
+matplotlib==3.9.0
+wandb==0.17.3
+GitPython
+tabulate
+gdown>=4.6.0
+numba
+ruckig
+coacd==1.0.0

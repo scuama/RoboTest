@@ -5,16 +5,20 @@ Time   : 8/8/24
 """
 import argparse
 import numpy as np
-from experiments.model_interface import VLAInterface
+from utils.interface import VLAInterface
 from pathlib import Path
 from tqdm import tqdm
 import json
 import os
 from PIL import Image
 import shutil
+import sys
 
 # Setup paths
 PACKAGE_DIR = Path(__file__).parent.resolve()
+_ROOT_DIR = Path(__file__).resolve().parents[2]
+if str(_ROOT_DIR) not in sys.path:
+    sys.path.append(str(_ROOT_DIR))
 
 
 class StableJSONizer(json.JSONEncoder):

@@ -1,5 +1,5 @@
 """
-Name   : random_lighting.py
+Name   : lighting.py
 Author : ZHIJIE WANG
 Time   : 8/15/24
 """

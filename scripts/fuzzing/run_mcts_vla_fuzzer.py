@@ -9,12 +9,12 @@ import sys
 
 import numpy as np
 
-_ROOT_DIR = Path(__file__).resolve().parents[1]
+_ROOT_DIR = Path(__file__).resolve().parents[2]
 if str(_ROOT_DIR) not in sys.path:
     sys.path.append(str(_ROOT_DIR))
 
-from experiments.model_interface import VLAInterface, VLAInterfaceLM
-from experiments.variation import Variation
+from utils.interface import VLAInterface, VLAInterfaceLM
+from utils.variation import Variation
 
 
 class StableJSONizer(json.JSONEncoder):

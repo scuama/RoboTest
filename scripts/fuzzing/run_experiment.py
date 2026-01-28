@@ -55,7 +55,7 @@ SCRIPT_DIR = Path(__file__).parent.absolute()
 sys.path.insert(0, str(SCRIPT_DIR))
 
 # 导入场景修改器
-from scene_modifier import SceneModifier
+from utils.config_generators.scene_modifier import SceneModifier
 
 # 导入OpenPI
 from openpi.training import config as _config

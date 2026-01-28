@@ -1,5 +1,5 @@
 """
-Name   : model_interface.py
+Name   : interface.py
 Author : ZHIJIE WANG
 Time   : 7/19/24
 """

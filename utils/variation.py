@@ -17,12 +17,12 @@ import cv2
 import numpy as np
 
 try:
-    from experiments.random_camera import RandomCamera
-    from experiments.random_lighting import RandomLighting
+    from utils.camera import RandomCamera
+    from utils.lighting import RandomLighting
 except ModuleNotFoundError:
-    # Allow running this file directly from the experiments directory.
-    from random_camera import RandomCamera
-    from random_lighting import RandomLighting
+    # Allow running this file directly from the utils directory.
+    from camera import RandomCamera
+    from lighting import RandomLighting
 
 _COLOR_BACKGROUNDS = {
     "red": (255, 0, 0),

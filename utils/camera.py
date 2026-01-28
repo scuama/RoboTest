@@ -1,5 +1,5 @@
 """
-Name   : random_camera.py
+Name   : camera.py
 Author : ZHIJIE WANG
 Time   : 8/16/24
 """

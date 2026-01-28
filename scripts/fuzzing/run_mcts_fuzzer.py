@@ -15,11 +15,11 @@ import subprocess
 import sys
 
 
-_ROOT_DIR = Path(__file__).resolve().parents[1]
-_REPO_ROOT = _ROOT_DIR.parent
+_ROOT_DIR = Path(__file__).resolve().parents[2]
+_REPO_ROOT = _ROOT_DIR
 sys.path.insert(0, str(_REPO_ROOT))
-from experiments.obstruction.bddl_variation import BDDLDocument, BDDLVariation
-from experiments.obstruction.scripts import run_experiment as obstruction_run
+from utils.bddl_variation import BDDLDocument, BDDLVariation
+from scripts.fuzzing import run_experiment as obstruction_run
 
 
 class StableJSONizer(json.JSONEncoder):

@@ -19,12 +19,12 @@ from pathlib import Path
 from typing import Dict, List, Tuple, Optional
 import sys
 
-_ROOT_DIR = Path(__file__).resolve().parents[1]
-_REPO_ROOT = _ROOT_DIR.parent
+_ROOT_DIR = Path(__file__).resolve().parents[2]
+_REPO_ROOT = _ROOT_DIR
 sys.path.insert(0, str(_REPO_ROOT))
 
-from experiments.obstruction.bddl_variation import BDDLDocument, BDDLVariation, _NAME_TO_TYPE_MAP
-from experiments.obstruction.scripts import run_experiment as obstruction_run
+from utils.bddl_variation import BDDLDocument, BDDLVariation, _NAME_TO_TYPE_MAP
+from scripts.fuzzing import run_experiment as obstruction_run
 
 
 class OptimizationExperiment:
@@ -101,7 +101,7 @@ class OptimizationExperiment:
         注意：堆叠的物体不需要独立的region，而是直接使用On关系
         """
         import re
-        from experiments.obstruction.bddl_variation import _OBSTACLE_POOL
+        from utils.bddl_variation import _OBSTACLE_POOL
         
         mutated = doc.clone()
         
