@@ -104,41 +104,45 @@ bash rerun_experiments.sh
 
 ### Requirements
 
-- Python 3.8+
-- PyTorch 2.0+
-- CUDA 11.8+ (recommended)
+- **Python**: 3.8+
+- **PyTorch**: 2.0+
+- **CUDA**: 11.8+ (recommended for GPU acceleration)
 
-### Core Dependencies
+### Framework Dependencies
 
-```bash
-pip install torch numpy opencv-python pyyaml tqdm transforms3d pillow
-```
+**OpenVLA/RT-1 Experiments** (RQ1 & RQ2 for OpenVLA/RT-1):
+- **VLATest Framework**: Our experiments for OpenVLA/RT-1 are built on top of VLATest
+- **Simpler-Env**: Simulation environment providing Google Robot and WidowX manipulation tasks
+- **SAPIEN**: Physics engine for realistic rendering
+- **Model Checkpoints**: RT-1-X, OpenVLA-7b pre-trained weights
 
-### Model-Specific Dependencies
+**π0.5 Experiments** (RQ1 & RQ2 for π0.5, RQ3 Real-world Transfer):
+- **LIBERO**: Benchmark suite for lifelong robot learning ([GitHub](https://github.com/Lifelong-Robot-Learning/LIBERO))
+- **OpenPI**: Vision-language-action model framework for π0.5
+- **Robosuite**: Simulation framework built on MuJoCo
+- **MuJoCo**: Physics simulation backend (EGL rendering mode)
 
-**For OpenVLA/RT-1**:
-- OpenVLA (install from source)
-- RT-1 models (from Google Research)
-- Simpler Environment
-
-**For π0.5**:
-- LIBERO benchmark: `https://github.com/Lifelong-Robot-Learning/LIBERO`
-- OpenPI framework
-- π0.5 model checkpoint
-
-### Setup
+### Installation Steps
 
 ```bash
 # Clone repository
 git clone https://github.com/scuama/RoboTest.git
 cd RoboTest
 
-# Install dependencies
-pip install -r requirements.txt
+# Basic dependencies
+pip install torch numpy opencv-python pyyaml tqdm pillow
 
-# Set up LIBERO (for π0.5 experiments)
+# For OpenVLA/RT-1 (VLATest-based experiments)
+pip install simpler-env gym sapien transforms3d
+
+# For π0.5 (LIBERO-based experiments)
+pip install robosuite mujoco
 git clone https://github.com/Lifelong-Robot-Learning/LIBERO.git
 cd LIBERO && pip install -e .
+
+# Set environment variables for π0.5 experiments
+export MUJOCO_GL=egl
+export PYOPENGL_PLATFORM=egl
 ```
 
 ## Quick Start
@@ -229,31 +233,5 @@ scene_configs/                 # 100 scene configurations
 replay_framework/
 ├── rerun_experiments.py       # Scene replay script
 ├── deficiency_annotations.json # Defect annotations
-└── scripts/                   # Execution utilities
+└── requirements.txt           # Python dependencies
 ```
-
-## Citation
-
-If you use this code in your research, please cite our paper:
-
-```bibtex
-@inproceedings{robotest2026,
-  title={RoboTest: Systematic Testing and Automated Repair of Vision-Language-Action Models},
-  author={Your Name et al.},
-  booktitle={Proceedings of ISSTA 2026},
-  year={2026}
-}
-```
-
-## License
-
-This project is for research purposes only. See LICENSE file for details.
-
-## Contact
-
-For questions or issues, please open an issue on GitHub or contact the authors.
-
----
-
-**Paper**: ISSTA 2026 - Robot SLM Testing  
-**Last Updated**: January 2026
