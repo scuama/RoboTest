@@ -10,59 +10,48 @@ This repository contains the implementation and experimental code for our paper 
 
 ```
 RoboTest/
-├── RQ1_Deficiency_Detection/      # Experiment 1: Deficiency Detection
+├── RQ1_Deficiency_Detection/      # Section 5.2: Deficiency Detection
 │   ├── openvla_rt1_fuzzing/       # Fuzzing for OpenVLA/RT-1
 │   └── pi05_fuzzing/              # Fuzzing for π0.5
 │
-├── RQ2_Deficiency_Repair/         # Experiment 2: Deficiency Repair
+├── RQ2_Deficiency_Repair/         # Section 5.3: Deficiency Repair
 │   ├── openvla_rt1_optimization/  # Optimization for OpenVLA/RT-1
 │   └── pi05_optimization/         # Optimization for π0.5
 │
-└── RQ3_Real_World_Transfer/       # Experiment 3: Real-world Transfer
-    ├── scene_configs/             # 100 real-world scene configurations
+└── RQ3_Real_World_Validation/     # Section 5.4: Real-world Validation
+    ├── scene_configs/             # 80 real-world scene configurations
     └── replay_framework/          # Scene replay framework
 ```
 
 ## Experiments
 
-### RQ1: Deficiency Detection
+### RQ1: Deficiency Detection (Section 5.2)
 
-**Objective**: Evaluate RoboTest's effectiveness in detecting VLA model deficiencies and compare with baseline tool (VLATest).
+**Objective**: Evaluate RoboTest's effectiveness in detecting VLA deficiencies.
 
-**Models Tested**: OpenVLA, RT-1, π0.5
-
-**Key Components**:
-- **OpenVLA/RT-1 Fuzzing**: MCTS-guided fuzzing with scene variation (camera, lighting, objects)
-- **π0.5 Fuzzing**: MCTS-guided fuzzing with obstruction scenarios (27 scene configurations)
+**Setup**: 
+- 3 VLA models (OpenVLA, RT-1, π0.5)
+- 100 test cases per task × 4 tasks × 5 runs = 6,000 evaluations
+- Comparison with baseline (VLATest)
 
 **Usage**:
 ```bash
 # OpenVLA/RT-1 fuzzing
 cd RQ1_Deficiency_Detection/openvla_rt1_fuzzing
-python run_mcts_fuzzer.py --data data/t-grasp_n-100_o-0_s-*.json --model openvla-7b
+python run_mcts_vla_fuzzer.py --data data/t-grasp_n-100_o-0_s-*.json --model openvla-7b
 
 # π0.5 fuzzing
 cd RQ1_Deficiency_Detection/pi05_fuzzing
 python run_mcts_fuzzer.py --config configs/exp_single_butter_bowl.yaml
 ```
 
-**Deficiency Types**:
-- **IR** (Invalid Reasoning): Incorrect task understanding
-- **IA** (Invalid Action): Wrong manipulation actions
-- **OPD** (Object Placement Deficiency): Incorrect object positioning
-- **IPU** (Instruction-Plan Unalignment): Misalignment between instruction and execution
+### RQ2: Deficiency Repair (Section 5.3)
 
-### RQ2: Deficiency Repair
+**Objective**: Evaluate the effectiveness of deficiency repair mechanisms.
 
-**Objective**: Evaluate semantic abstraction-based repair mechanisms (Planning & Action Repair).
-
-**Key Components**:
-- **OpenVLA/RT-1 Optimization**: Exhaustive strategy exploration
-  - Grasp optimization (8 directions)
-  - Object rotation (6 angles)
-  - Distance adjustment (3 levels)
-  - Object replacement (type-based)
-- **π0.5 Optimization**: Guided repair with obstruction handling
+**Setup**:
+- Repair models: RT-1-X-Memory, OpenVLA-Memory, π0.5-Memory
+- Re-execute all test cases from RQ1 on repaired models
 
 **Usage**:
 ```bash
@@ -75,30 +64,22 @@ cd RQ2_Deficiency_Repair/pi05_optimization
 bash run_optimization.sh
 ```
 
-**Output**:
-- Repaired trajectories
-- Memory Set dataset
-- Fine-tuned models (RT-1-X-Memory, π0.5-Memory)
+### RQ3: Real-World Validation (Section 5.4)
 
-### RQ3: Real-world Transfer
+**Objective**: Validate sim-to-real transfer performance on physical Franka robot.
 
-**Objective**: Validate sim-to-real transfer performance on Franka robotic arm.
-
-**Key Components**:
-- 100 real-world scene configurations
-- Comparison: Original π0.5 vs. π0.5-Memory
-- Real robot experiments with deficiency annotations
+**Setup**:
+- 80 real-world test cases (20% of RQ1 budget)
+- Compare π0.5 vs. π0.5-Memory on physical robot
 
 **Usage**:
 ```bash
-cd RQ3_Real_World_Transfer/replay_framework
+cd RQ3_Real_World_Validation/replay_framework
 python rerun_experiments.py --scene 0
 
 # Batch execution
 bash rerun_experiments.sh
 ```
-
-**Scenes**: 100 pre-configured scenes with varying complexity and obstruction patterns.
 
 ## Installation
 
@@ -116,7 +97,7 @@ bash rerun_experiments.sh
 - **SAPIEN**: Physics engine for realistic rendering
 - **Model Checkpoints**: RT-1-X, OpenVLA-7b pre-trained weights
 
-**π0.5 Experiments** (RQ1 & RQ2 for π0.5, RQ3 Real-world Transfer):
+**π0.5 Experiments** (RQ1 & RQ2 for π0.5, RQ3 Real-world Validation):
 - **LIBERO**: Benchmark suite for lifelong robot learning ([GitHub](https://github.com/Lifelong-Robot-Learning/LIBERO))
 - **OpenPI**: Vision-language-action model framework for π0.5
 - **Robosuite**: Simulation framework built on MuJoCo
@@ -147,91 +128,38 @@ export PYOPENGL_PLATFORM=egl
 
 ## Quick Start
 
-### Run All Experiments
-
 ```bash
 # RQ1: Deficiency Detection
 cd RQ1_Deficiency_Detection/openvla_rt1_fuzzing
-python run_fuzzer.py --data data/t-grasp_n-100_o-0_s-*.json --model openvla-7b
+python run_mcts_vla_fuzzer.py --data data/t-grasp_n-100_o-0_s-*.json --model openvla-7b
 
 # RQ2: Deficiency Repair
 cd RQ2_Deficiency_Repair/openvla_rt1_optimization
 bash start_optimization.sh --task grasp --model openvla-7b
 
-# RQ3: Real-world Transfer
-cd RQ3_Real_World_Transfer/replay_framework
+# RQ3: Real-World Validation
+cd RQ3_Real_World_Validation/replay_framework
 bash rerun_experiments.sh
 ```
 
 ## Results
 
-Each experiment generates results in its respective directory:
+Results are saved in respective `results/` directories:
+- `RQ1_Deficiency_Detection/results/`: Detection logs and coverage statistics
+- `RQ2_Deficiency_Repair/results/`: Repair success rates and memory datasets  
+- `RQ3_Real_World_Validation/results/`: Real robot execution logs
 
-- **RQ1**: `RQ1_Deficiency_Detection/results/`
-  - Defect detection logs
-  - Coverage statistics
-  - Comparison with VLATest
+For detailed results and analysis, please refer to the paper.
 
-- **RQ2**: `RQ2_Deficiency_Repair/results/`
-  - Repair success rates
-  - Memory Set data
-  - Before/after comparison
+## Citation
 
-- **RQ3**: `RQ3_Real_World_Transfer/results/`
-  - Real robot execution logs
-  - Success rate comparison
-  - Video recordings (if enabled)
+If you use RoboTest in your research, please cite our paper:
 
-## Key Features
-
-- **MCTS-Guided Fuzzing**: Adaptive test case generation using Monte Carlo Tree Search
-- **Scene Variation Engine**: Camera, lighting, and object position randomization
-- **Semantic Repair**: Abstraction-based deficiency repair mechanism
-- **Exhaustive Optimization**: Systematic exploration of fix strategies
-- **Sim-to-Real Transfer**: Validation on real Franka robotic arm
-
-## File Organization
-
-### RQ1: Deficiency Detection
-```
-openvla_rt1_fuzzing/
-├── run_fuzzer.py              # Basic fuzzing
-├── run_mcts_fuzzer.py         # MCTS-guided fuzzing
-├── model_interface.py         # VLA model interface
-├── variation.py               # Scene variation engine
-└── data/                      # Test datasets
-
-pi05_fuzzing/
-├── run_mcts_fuzzer.py         # MCTS fuzzing for π0.5
-├── scripts/
-│   ├── run_experiment.py      # Experiment executor
-│   └── scene_modifier.py      # Scene modification
-├── configs/                   # 27 obstruction scenarios
-└── custom_bddl_files/         # BDDL scene definitions
-```
-
-### RQ2: Deficiency Repair
-```
-openvla_rt1_optimization/
-├── optimizer.py               # Main optimizer
-├── start_optimization.sh      # Launch script
-└── fix_strategy_*.py          # Repair strategies
-
-pi05_optimization/
-├── run_optimization.py        # Optimization executor
-└── scripts/                   # Supporting scripts
-```
-
-### RQ3: Real-world Transfer
-```
-scene_configs/                 # 100 scene configurations
-└── scene_XXXX/
-    ├── config_guided.yaml
-    ├── mutated_only.bddl
-    └── mutated_stacked.bddl
-
-replay_framework/
-├── rerun_experiments.py       # Scene replay script
-├── deficiency_annotations.json # Defect annotations
-└── requirements.txt           # Python dependencies
+```bibtex
+@inproceedings{robotest2026,
+  title={RoboTest: Systematic Testing and Automated Repair of Vision-Language-Action Models},
+  author={[Authors]},
+  booktitle={Proceedings of ISSTA 2026},
+  year={2026}
+}
 ```
