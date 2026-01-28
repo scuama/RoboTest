@@ -8,15 +8,6 @@ This repository provides the artifacts for the ISSTA 2026 paper (Submission #10)
 
 **RoboTest** is a generic testing framework for detecting and repairing deficiencies in Vision-Language-Action (VLA) models through automated evaluation and augmentation.
 
-## Installation
-
-### Prerequisites
-
-- Ubuntu 22.04 (recommended)
-- Python 3.10 or 3.11
-- CUDA 11.8+ or 12.0+
-- NVIDIA GPU (8GB+ memory)
-
 ## Quick Start
 
 ### Deficiency Detection
@@ -41,7 +32,14 @@ bash start_optimization.sh --task grasp --model openvla-7b
 bash run_optimization.sh
 ```
 
-## VLA接入
+## VLA Integration
+
+### Prerequisites
+
+- Ubuntu 22.04 (recommended)
+- Python 3.10 or 3.11
+- CUDA 11.8+ or 12.0+
+- NVIDIA GPU (8GB+ memory)
 
 ### OpenVLA/RT-1 Experiments
 
@@ -79,3 +77,5 @@ pip install -r requirements_pi05.txt
 export MUJOCO_GL=egl
 export PYOPENGL_PLATFORM=egl
 ```
+
+
