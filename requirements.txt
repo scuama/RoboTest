@@ -1,0 +1,84 @@
+# Combined Requirements for RoboTest
+
+# Core Utilities
+numpy<2.0.0
+scipy
+pyyaml
+tqdm
+matplotlib
+wandb
+GitPython
+tabulate
+gdown>=4.6.0
+Pillow>=11.0.0
+imageio
+opencv-python>=4.10.0
+h5py
+fsspec[gcs]>=2.024.6.0
+
+# Simulation Environments
+gym>=0.26.0
+gymnasium
+sapien==2.2.2
+robosuite
+mujoco
+
+# -------------------------------------------------------------
+# OpenVLA / RT-1 (SimplerEnv + ManiSkill2) Specific Dependencies
+# -------------------------------------------------------------
+# Note: TensorFlow ecosystem
+tensorflow[and-cuda]==2.15.1
+tensorflow_datasets==4.9.4
+tensorflow_hub==0.16.0
+rlds==0.1.8
+tf_agents==0.19.0
+dm-reverb[tensorflow]==0.14.0
+
+# Note: Utilities for SimplerEnv
+transforms3d
+imageio[ffmpeg]
+trimesh
+rtree
+numba
+ruckig
+coacd==1.0.0
+
+# -------------------------------------------------------------
+# π0.5 (OpenPI + LIBERO) Specific Dependencies
+# -------------------------------------------------------------
+# Note: JAX/Flax ecosystem
+jax[cuda12]==0.5.3
+flax==0.10.2
+jaxtyping==0.2.36
+equinox>=0.11.8
+optax>=0.2.0
+
+# Note: OpenPI core
+augmax>=0.3.4
+dm-tree>=0.1.8
+ml_collections==1.0.0
+orbax-checkpoint==0.11.13
+tyro>=0.9.5
+filelock>=3.16.1
+beartype==0.19.0
+treescope>=0.1.7
+rich>=14.0.0
+polars>=1.30.0
+tqdm-loggable>=0.2
+
+# -------------------------------------------------------------
+# Shared/Conflicting Deep Learning Frameworks
+# -------------------------------------------------------------
+# Torch (Version specific to environment needs, default to 2.4.0 for now)
+# OpenVLA/RT-1 uses: torch==2.4.0, torchvision==0.19.0, torchaudio==2.4.0
+# π0.5 listed: torch==2.7.1 (Likely future/custom, flagging for review)
+torch==2.4.0
+torchvision==0.19.0
+torchaudio==2.4.0
+
+# Transformers
+# OpenVLA/RT-1 uses: transformers==4.42.1
+# π0.5 uses: transformers==4.53.2
+transformers>=4.42.1
+sentencepiece>=0.2.0
+einops>=0.8.0
