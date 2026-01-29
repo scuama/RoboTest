@@ -42,9 +42,6 @@ bash run_optimization.sh
 
 ## Environment Setup
 
-Please refer to [ENVIRONMENT_SETUP.md](ENVIRONMENT_SETUP.md) for:
-- **Core Installation**: Setting up Python and installing common dependencies (`requirements.txt`).
-- **SimplerEnv / ManiSkill2 Setup**: Configuration for RT-1 and OpenVLA experiments.
-- **OpenPI / LIBERO Setup**: Configuration for π0 and OpenPI-based experiments.
+Please refer to [ENVIRONMENT_SETUP.md](ENVIRONMENT_SETUP.md) for detailed instructions on model integration and environment configuration.
 
 
